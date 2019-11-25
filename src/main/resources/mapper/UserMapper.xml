@@ -2,8 +2,11 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="edu.swjtuhc.mapper.UserMapper">
- 	<resultMap type="edu.swjtuhc.model.user" id="user_result"> 
- 		<id column="u_id" property="u_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
- 		
+ 	<resultMap type="edu.swjtuhc.model.music_form" id="music_form_result"> 
+ 		<id column="music_id" property="music_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+ 		<result column="music_name" property="music_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
  	</resultMap>
+ 	<select id="selectAllForms" resultMap="music_form_result">
+ 	select * from music_form
+ 	</select>
  </mapper>
