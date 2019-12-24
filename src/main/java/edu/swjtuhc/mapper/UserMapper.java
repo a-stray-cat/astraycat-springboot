@@ -1,12 +1,19 @@
 package edu.swjtuhc.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 
-import edu.swjtuhc.model.music_form;
+import edu.swjtuhc.model.SysUser;
 
 @Mapper
 public interface UserMapper {
-	public List<music_form> selectAllForms();
+	
+	public SysUser selectUserByUsername(String  username);
+	
+	public SysUser selectAdminByUsername(String  username);
+	
+	public SysUser selectUserByUsernameAndPass(String username,String userPassword);
+	
+	public SysUser selectAdminByUsernameAndPass(String adminuname,String adminPassword); 
+	
+	public int insertUser(SysUser user);
 }

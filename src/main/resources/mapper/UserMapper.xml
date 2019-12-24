@@ -2,11 +2,44 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="edu.swjtuhc.mapper.UserMapper">
- 	<resultMap type="edu.swjtuhc.model.music_form" id="music_form_result"> 
- 		<id column="music_id" property="music_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
- 		<result column="music_name" property="music_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 	<resultMap type="edu.swjtuhc.mapper.UserMapper" id="userinfor_result">
+ 		<id column="userId" property="userId" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="userPassword" property="userPassword" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="userPhonenumber" property="userPhonenumber" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="adminUname" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="adminPassword" property="userPassword" javaType="java.lang.String" jdbcType="VARCHAR"/>
  	</resultMap>
- 	<select id="selectAllForms" resultMap="music_form_result">
- 	select * from music_form
+ 	<!-- 注册用户 -->
+ 	<insert id="insertUser" parameterType="edu.swjtuhc.model.SysUser">
+ 	insert into
+ 	user
+ 	(username,userPassword,userPhonenumber)
+ 	values
+ 	(#{username},#{userPassword},#{userPhonenumber})
+ 	</insert>
+ 	<!-- 通过用户名查询用户 -->
+ 	<select id="selectUserByUsername" parameterType="java.lang.String" resultType="edu.swjtuhc.model.SysUser">
+ 		select
+ 		*
+ 		from user where username=#{username}
+ 	</select>
+ 	<!-- 通过用户名查询用户 -->
+ 	<select id="selectAdminByUsername" parameterType="java.lang.String" resultType="edu.swjtuhc.model.SysUser">
+ 		select
+ 		*
+ 		from admin where adminUname=#{username}
+ 	</select>
+ 	<!-- 通过用户名和密码查询管理员 -->
+ 	<select id="selectAdminByUsernameAndPass" parameterType="java.lang.String" resultType="edu.swjtuhc.model.SysUser">
+ 		select
+ 		*
+ 		from admin where adminUname=#{username} and adminPassword=#{userPassword}
+ 	</select>
+ 	<!-- 通过用户名和密码查询用户 -->
+ 	<select id="selectUserByUsernameAndPass" parameterType="java.lang.String" resultType="edu.swjtuhc.model.SysUser">
+ 		select
+ 		*
+ 		from user where username=#{username} and userPassword=#{userPassword}
  	</select>
  </mapper>
