@@ -7,8 +7,8 @@
  		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
  		<result column="userPassword" property="userPassword" javaType="java.lang.String" jdbcType="VARCHAR"/>
  		<result column="userPhonenumber" property="userPhonenumber" javaType="java.lang.String" jdbcType="VARCHAR"/>
- 		<result column="adminUname" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
- 		<result column="adminPassword" property="userPassword" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="adminName" property="adminName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="adminPassword" property="adminPassword" javaType="java.lang.String" jdbcType="VARCHAR"/>
  	</resultMap>
  	<!-- 注册用户 -->
  	<insert id="insertUser" parameterType="edu.swjtuhc.model.SysUser">
@@ -28,13 +28,13 @@
  	<select id="selectAdminByUsername" parameterType="java.lang.String" resultType="edu.swjtuhc.model.SysUser">
  		select
  		*
- 		from admin where adminUname=#{username}
+ 		from admin where adminName=#{adminName}
  	</select>
  	<!-- 通过用户名和密码查询管理员 -->
  	<select id="selectAdminByUsernameAndPass" parameterType="java.lang.String" resultType="edu.swjtuhc.model.SysUser">
  		select
  		*
- 		from admin where adminUname=#{username} and adminPassword=#{userPassword}
+ 		from admin where adminName=#{adminName} and adminPassword=#{adminPassword}
  	</select>
  	<!-- 通过用户名和密码查询用户 -->
  	<select id="selectUserByUsernameAndPass" parameterType="java.lang.String" resultType="edu.swjtuhc.model.SysUser">

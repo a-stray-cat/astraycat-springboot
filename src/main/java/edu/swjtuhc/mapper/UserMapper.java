@@ -13,7 +13,7 @@ public interface UserMapper {
 	
 	public SysUser selectUserByUsernameAndPass(String username,String userPassword);
 	
-	public SysUser selectAdminByUsernameAndPass(String adminuname,String adminPassword); 
+	public SysUser selectAdminByUsernameAndPass(String adminName,String adminPassword); 
 	
 	public int insertUser(SysUser user);
 }

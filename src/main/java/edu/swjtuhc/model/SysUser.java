@@ -6,7 +6,7 @@ public class SysUser {
 	private String userPassword;
 	private String rePassword;
 	private String userPhonenumber;
-	private String adminUname;
+	private String adminName;
 	private String adminPassword;
 	public int getUserId() {
 		return userId;
@@ -38,11 +38,11 @@ public class SysUser {
 	public void setUserPhonenumber(String userPhonenumber) {
 		this.userPhonenumber = userPhonenumber;
 	}
-	public String getAdminUname() {
-		return adminUname;
+	public String getAdminName() {
+		return adminName;
 	}
-	public void setAdminUname(String adminUname) {
-		this.adminUname = adminUname;
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
 	public String getAdminPassword() {
 		return adminPassword;
@@ -53,7 +53,7 @@ public class SysUser {
 	@Override
 	public String toString() {
 		return "SysUser [userId=" + userId + ", username=" + username + ", userPassword=" + userPassword
-				+ ", rePassword=" + rePassword + ", userPhonenumber=" + userPhonenumber + ", adminuname=" + adminUname
+				+ ", rePassword=" + rePassword + ", userPhonenumber=" + userPhonenumber + ", adminName=" + adminName
 				+ ", adminPassword=" + adminPassword + "]";
 	}
 }
