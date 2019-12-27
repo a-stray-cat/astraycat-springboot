@@ -36,11 +36,9 @@ public class UserServiceImp implements UserService {
 		// TODO Auto-generated method stub
 		user.setAdminName(user.getUsername());
 		user.setAdminPassword(user.getUserPassword());
-		System.out.println(user);
 		SysUser user1 = userMapper.selectUserByUsername(user.getUsername());
 		SysUser user2 = userMapper.selectAdminByUsername(user.getUsername());
 		SysUser user3 = userMapper.selectUserByUsernameAndPass(user.getUsername(), user.getUserPassword());
-		System.out.println(user3);
 		SysUser user4 = userMapper.selectAdminByUsernameAndPass(user.getUsername(), user.getUserPassword());
 		int i = 0;
 		if (user2!=null) {
