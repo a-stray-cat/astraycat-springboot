@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 01/01/2020 14:19:04
+ Date: 02/01/2020 04:10:02
 */
 
 SET NAMES utf8mb4;
@@ -38,46 +38,29 @@ INSERT INTO `admin` VALUES ('root', 'root');
 -- ----------------------------
 DROP TABLE IF EXISTS `music`;
 CREATE TABLE `music`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '歌曲ID',
-  PRIMARY KEY (`id`) USING BTREE
+  `musicId` int(11) NOT NULL AUTO_INCREMENT COMMENT '歌曲ID',
+  `musicName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '歌曲名',
+  `singer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '歌手',
+  `play` int(255) NOT NULL COMMENT '播放量',
+  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '短期标签',
+  PRIMARY KEY (`musicId`) USING BTREE,
+  INDEX `musicName`(`musicName`) USING BTREE,
+  INDEX `singer`(`singer`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of music
 -- ----------------------------
-INSERT INTO `music` VALUES (1);
-INSERT INTO `music` VALUES (2);
-INSERT INTO `music` VALUES (3);
-INSERT INTO `music` VALUES (4);
-INSERT INTO `music` VALUES (5);
-INSERT INTO `music` VALUES (6);
-INSERT INTO `music` VALUES (7);
-INSERT INTO `music` VALUES (8);
-INSERT INTO `music` VALUES (9);
-INSERT INTO `music` VALUES (10);
-INSERT INTO `music` VALUES (11);
-INSERT INTO `music` VALUES (12);
-INSERT INTO `music` VALUES (13);
-INSERT INTO `music` VALUES (14);
-INSERT INTO `music` VALUES (15);
-INSERT INTO `music` VALUES (16);
-INSERT INTO `music` VALUES (17);
-INSERT INTO `music` VALUES (18);
-INSERT INTO `music` VALUES (19);
-INSERT INTO `music` VALUES (20);
-INSERT INTO `music` VALUES (21);
-INSERT INTO `music` VALUES (22);
-INSERT INTO `music` VALUES (23);
-INSERT INTO `music` VALUES (24);
-INSERT INTO `music` VALUES (25);
-INSERT INTO `music` VALUES (26);
-INSERT INTO `music` VALUES (27);
-INSERT INTO `music` VALUES (28);
-INSERT INTO `music` VALUES (29);
-INSERT INTO `music` VALUES (30);
-INSERT INTO `music` VALUES (31);
-INSERT INTO `music` VALUES (32);
-INSERT INTO `music` VALUES (33);
+INSERT INTO `music` VALUES (1, '归寻', '等什么君', 123, NULL);
+INSERT INTO `music` VALUES (2, '关山酒', '等什么君', 2321, NULL);
+INSERT INTO `music` VALUES (3, '辞九门回忆', '等什么君', 2343, NULL);
+INSERT INTO `music` VALUES (4, '一抹桃花', '珍哥', 56, NULL);
+INSERT INTO `music` VALUES (34, '赤伶', 'HITA', 4522, 'new');
+INSERT INTO `music` VALUES (35, '好想爱这个世界啊', '华晨宇', 4532, 'new');
+INSERT INTO `music` VALUES (36, '环', '薛之谦', 6543, 'new');
+INSERT INTO `music` VALUES (37, '世界美好与你环环相扣', '柏松', 6545, 'hot');
+INSERT INTO `music` VALUES (38, '你的答案', '阿冗', 4321, 'hot');
+INSERT INTO `music` VALUES (39, '句号', '邓紫棋', 5432, 'hot');
 
 -- ----------------------------
 -- Table structure for musicform
@@ -92,17 +75,22 @@ CREATE TABLE `musicform`  (
   `album` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '专辑',
   `allTime` time(0) NOT NULL COMMENT '总时长',
   `cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '封面',
+  `collection` int(255) NOT NULL DEFAULT 0 COMMENT '收藏',
   INDEX `formID`(`userId`) USING BTREE,
-  CONSTRAINT `musicform_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  INDEX `musicName`(`musicName`) USING BTREE,
+  INDEX `singer`(`singer`) USING BTREE,
+  CONSTRAINT `musicform_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `musicform_ibfk_2` FOREIGN KEY (`musicName`) REFERENCES `music` (`musicName`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `musicform_ibfk_3` FOREIGN KEY (`singer`) REFERENCES `music` (`singer`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of musicform
 -- ----------------------------
-INSERT INTO `musicform` VALUES (1, 1, '古风1', '关山酒', '等什么君', '关山酒', '00:03:54', '/cover/1.jpg');
-INSERT INTO `musicform` VALUES (2, 1, '古风1', '归寻', '等什么君', '归寻', '00:03:14', '/cover/2.jpg');
-INSERT INTO `musicform` VALUES (1, 2, '古风2', '辞九门回忆', '等什么君', '辞九门回忆', '00:04:00', '/cover/3.jpg');
-INSERT INTO `musicform` VALUES (2, 2, '古风2', '一抹桃花', '珍哥', '一抹桃花', '00:03:16', '/cover/4.jpg');
+INSERT INTO `musicform` VALUES (1, 1, '古风1', '关山酒', '等什么君', '关山酒', '00:03:54', '/cover/1.jpg', 0);
+INSERT INTO `musicform` VALUES (2, 1, '古风1', '归寻', '等什么君', '归寻', '00:03:14', '/cover/2.jpg', 0);
+INSERT INTO `musicform` VALUES (1, 2, '古风2', '辞九门回忆', '等什么君', '辞九门回忆', '00:04:00', '/cover/3.jpg', 0);
+INSERT INTO `musicform` VALUES (2, 2, '古风2', '一抹桃花', '珍哥', '一抹桃花', '00:03:16', '/cover/4.jpg', 0);
 
 -- ----------------------------
 -- Table structure for rotation
@@ -115,7 +103,7 @@ CREATE TABLE `rotation`  (
   `musicId` int(255) NOT NULL COMMENT '对应所属音乐ID',
   PRIMARY KEY (`chartId`) USING BTREE,
   INDEX `musicId`(`musicId`) USING BTREE,
-  CONSTRAINT `rotation_ibfk_1` FOREIGN KEY (`musicId`) REFERENCES `music` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `rotation_ibfk_1` FOREIGN KEY (`musicId`) REFERENCES `music` (`musicId`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
