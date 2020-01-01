@@ -7,12 +7,19 @@
 		<result column="musicName" property="musicName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
 		<result column="singer" property="singer" javaType="java.lang.String" jdbcType="VARCHAR"></result>
 		<result column="play" property="play" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+		<result column="label" property="label" javaType="java.lang.String" jdbcType="VARCHAR"></result>
 	</resultMap>
 	
 	<select id="selectriseList" resultMap="riselist_result">
 	select
 	*
 	from music order by play desc
+	</select>
+	
+	<select id="selectnewList" resultMap="riselist_result">
+	select
+	*
+	from music where label="new" order by play desc
 	</select>
 	
 </mapper>

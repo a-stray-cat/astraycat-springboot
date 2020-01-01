@@ -5,6 +5,7 @@ public class Music {
 	private String musicName;
 	private String singer;
 	private int play;
+	private String label;
 	public int getMusicId() {
 		return musicId;
 	}
@@ -29,9 +30,16 @@ public class Music {
 	public void setPlay(int play) {
 		this.play = play;
 	}
+	public String getLabel() {
+		return label;
+	}
+	public void setLabel(String label) {
+		this.label = label;
+	}
 	@Override
 	public String toString() {
-		return "Music [musicId=" + musicId + ", musicName=" + musicName + ", singer=" + singer + ", play=" + play + "]";
+		return "Music [musicId=" + musicId + ", musicName=" + musicName + ", singer=" + singer + ", play=" + play
+				+ ", label=" + label + "]";
 	}
 	
 }

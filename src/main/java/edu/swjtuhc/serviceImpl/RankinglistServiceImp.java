@@ -20,6 +20,12 @@ public class RankinglistServiceImp implements RankinglistService{
 		// TODO Auto-generated method stub
 		return rankinglistMapper.selectriseList();
 	}
+
+	@Override
+	public List<Music> getnewList() {
+		// TODO Auto-generated method stub
+		return rankinglistMapper.selectnewList();
+	}
 	
 	
 }

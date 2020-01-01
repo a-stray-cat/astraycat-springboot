@@ -20,4 +20,9 @@ public class RankinglistController {
 	public List<Music> getriseList() {
 		return rankinglistService.getriseList();
 	}
+	
+	@RequestMapping("/new")
+	public List<Music> getnewList() {
+		return rankinglistService.getnewList();
+	}
 }

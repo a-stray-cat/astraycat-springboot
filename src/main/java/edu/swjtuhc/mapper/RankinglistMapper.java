@@ -8,5 +8,8 @@ import edu.swjtuhc.model.Music;
 
 @Mapper
 public interface RankinglistMapper {
+	
 	public List<Music> selectriseList();
+	
+	public List<Music> selectnewList();
 }
