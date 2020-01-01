@@ -9,4 +9,6 @@ public interface RankinglistService {
 	public List<Music> getriseList();
 	
 	public List<Music> getnewList();
+	
+	public List<Music> gethotList();
 }

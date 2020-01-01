@@ -12,4 +12,6 @@ public interface RankinglistMapper {
 	public List<Music> selectriseList();
 	
 	public List<Music> selectnewList();
+	
+	public List<Music> selecthotList();
 }
