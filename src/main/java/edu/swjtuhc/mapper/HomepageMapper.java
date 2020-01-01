@@ -13,4 +13,6 @@ public interface HomepageMapper {
 	public List<Rotation> selectRotations();
 	
 	public List<MusicForm> selecthomepageForm();
+	
+	public List<MusicForm> selecthvideoForm();
 }

@@ -3,6 +3,7 @@ package edu.swjtuhc.model;
 import java.sql.Time;
 
 public class MusicForm {
+	private String username;
 	private int userId;
 	private int formId;
 	private String formName;
@@ -11,6 +12,13 @@ public class MusicForm {
 	private String album;
 	private Time allTime;
 	private String cover;
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -61,8 +69,9 @@ public class MusicForm {
 	}
 	@Override
 	public String toString() {
-		return "MusicForm [userId=" + userId + ", formId=" + formId + ", formName=" + formName + ", musicName="
-				+ musicName + ", singer=" + singer + ", album=" + album + ", allTime=" + allTime + ", cover=" + cover
-				+ "]";
+		return "MusicForm [username=" + username + ", userId=" + userId + ", formId=" + formId + ", formName="
+				+ formName + ", musicName=" + musicName + ", singer=" + singer + ", album=" + album + ", allTime="
+				+ allTime + ", cover=" + cover + "]";
 	}
+	
 }

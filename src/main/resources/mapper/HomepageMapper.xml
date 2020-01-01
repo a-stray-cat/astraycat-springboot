@@ -20,6 +20,15 @@
 	<result column="cover" property="cover" javaType="java.lang.String" jdbcType="VARCHAR"></result> 
  </resultMap>
  
+ <resultMap type="edu.swjtuhc.model.Video" id="videoForm_result">
+	<id column="videoId" property="videoId" javaType="java.lang.Integer" jdbcType="INTEGER"></id>
+	<result column="userId" property="userId" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+	<result column="videoName" property="videoName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	<result column="label" property="label" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	<result column="storagePath" property="storagePath" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	<result column="uploadTime" property="uploadTime" javaType="java.sql.Time" jdbcType="TIME"></result>
+ </resultMap>
+ 
  <select id="selectRotations" resultMap="rotation_result">
 	select
 	*
@@ -30,6 +39,12 @@
  	select
  	cover,formName
  	from musicForm
+ </select>
+ 
+ <select id="selecthvideoForm" resultMap="videoForm_result">
+ 	select
+ 	videoName,storagePath
+ 	from video
  </select>
  
 </mapper>

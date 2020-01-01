@@ -27,6 +27,12 @@ public class HomepageServiceImp implements HomepageService{
 		// TODO Auto-generated method stub
 		return homepageMapper.selecthomepageForm();
 	}
+
+	@Override
+	public List<MusicForm> gethvideoForm() {
+		// TODO Auto-generated method stub
+		return homepageMapper.selecthvideoForm();
+	}
 	
 	
 }

@@ -26,4 +26,9 @@ public class HomepageController {
 	public List<MusicForm> gethomepageForm() {
 		return homepageService.gethomepageForm();
 	}
+	
+	@RequestMapping("/videoForm")
+	public List<MusicForm> gethvideoForm() {
+		return homepageService.gethvideoForm();
+	}
 }

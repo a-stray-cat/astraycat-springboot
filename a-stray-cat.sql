@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 01/01/2020 13:48:18
+ Date: 01/01/2020 14:19:04
 */
 
 SET NAMES utf8mb4;
@@ -146,5 +146,29 @@ INSERT INTO `user` VALUES (2, '1234', '1234', '1284773847309');
 INSERT INTO `user` VALUES (3, 'lh1123', '123', '123');
 INSERT INTO `user` VALUES (4, 'lh113', '123', '123');
 INSERT INTO `user` VALUES (5, '131', '123', '123');
+
+-- ----------------------------
+-- Table structure for video
+-- ----------------------------
+DROP TABLE IF EXISTS `video`;
+CREATE TABLE `video`  (
+  `userId` int(100) NOT NULL COMMENT '用户ID',
+  `videoId` int(100) NOT NULL AUTO_INCREMENT COMMENT '视频ID',
+  `videoName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '视频名称',
+  `uploadTime` datetime(0) NOT NULL COMMENT '上传时间',
+  `label` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '标签',
+  `storagePath` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '保存路径',
+  PRIMARY KEY (`videoId`) USING BTREE,
+  INDEX `userId`(`userId`) USING BTREE,
+  CONSTRAINT `video_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of video
+-- ----------------------------
+INSERT INTO `video` VALUES (1, 1, 'gnash,Olivia O\'Brien - I Hate U, I Love U', '2016-05-11 00:00:00', '流行', '/video/gnash,Olivia O\'Brien - I Hate U, I Love U.mp4');
+INSERT INTO `video` VALUES (1, 2, '李荣浩 - 麻雀', '2019-12-09 00:00:00', '流行', '/video/李荣浩 - 麻雀.mp4');
+INSERT INTO `video` VALUES (2, 3, '薛之谦,刘惜君 - 聊表心意', '2019-12-17 00:00:00', '流行', '/video/薛之谦,刘惜君 - 聊表心意.mp4');
+INSERT INTO `video` VALUES (3, 4, '薛之谦 - 像风一样', '2018-01-18 00:00:00', '流行', '/video/薛之谦 - 像风一样.mp4');
 
 SET FOREIGN_KEY_CHECKS = 1;

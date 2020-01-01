@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.swjtuhc.mapper.MusicformMapper">
+	<resultMap type="edu.swjtuhc.model.MusicForm" id="musicForm_result">
+		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="formId" property="formId" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+		<result column="formName" property="formName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="cover" property="cover" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	</resultMap>
+	
+	<select id="selectallForms" resultMap="musicForm_result">
+		select
+		*
+		from user,musicForm where user.userId=musicForm.userId
+	</select>
+	
+</mapper>

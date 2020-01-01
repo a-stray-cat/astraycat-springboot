@@ -11,5 +11,6 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 		// TODO Auto-generated method stub
 		registry.addResourceHandler("/rotation/**").addResourceLocations("file:E:/localhostFiles/poster/");
 		registry.addResourceHandler("/cover/**").addResourceLocations("file:E:/localhostFiles/cover/");
+		registry.addResourceHandler("/video/**").addResourceLocations("file:E:/localhostFiles/video/");
 	}
 }

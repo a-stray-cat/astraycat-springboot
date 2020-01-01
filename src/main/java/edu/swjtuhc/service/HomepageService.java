@@ -10,4 +10,6 @@ public interface HomepageService {
 	public List<Rotation> getRotations();
 	
 	public List<MusicForm> gethomepageForm();
+	
+	public List<MusicForm> gethvideoForm();
 }
