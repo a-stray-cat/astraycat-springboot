@@ -10,6 +10,7 @@ public class MusicForm {
 	private String singer;
 	private String album;
 	private Time allTime;
+	private String cover;
 	public int getUserId() {
 		return userId;
 	}
@@ -52,10 +53,16 @@ public class MusicForm {
 	public void setAllTime(Time allTime) {
 		this.allTime = allTime;
 	}
+	public String getCover() {
+		return cover;
+	}
+	public void setCover(String cover) {
+		this.cover = cover;
+	}
 	@Override
 	public String toString() {
-		return "musicForm [userId=" + userId + ", formId=" + formId + ", formName=" + formName + ", musicName="
-				+ musicName + ", singer=" + singer + ", album=" + album + ", allTime=" + allTime + "]";
+		return "MusicForm [userId=" + userId + ", formId=" + formId + ", formName=" + formName + ", musicName="
+				+ musicName + ", singer=" + singer + ", album=" + album + ", allTime=" + allTime + ", cover=" + cover
+				+ "]";
 	}
-	
 }

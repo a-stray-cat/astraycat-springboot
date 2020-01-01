@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.swjtuhc.mapper.HomepageMapper;
+import edu.swjtuhc.model.MusicForm;
 import edu.swjtuhc.model.Rotation;
 import edu.swjtuhc.service.HomepageService;
 
@@ -19,6 +20,12 @@ public class HomepageServiceImp implements HomepageService{
 	public List<Rotation> getRotations() {
 		// TODO Auto-generated method stub
 		return homepageMapper.selectRotations();
+	}
+
+	@Override
+	public List<MusicForm> gethomepageForm() {
+		// TODO Auto-generated method stub
+		return homepageMapper.selecthomepageForm();
 	}
 	
 	

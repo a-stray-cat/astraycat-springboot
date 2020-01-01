@@ -9,6 +9,7 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		// TODO Auto-generated method stub
-		registry.addResourceHandler("/rotation/**").addResourceLocations("file:E:/localhostFiles/");
+		registry.addResourceHandler("/rotation/**").addResourceLocations("file:E:/localhostFiles/poster/");
+		registry.addResourceHandler("/cover/**").addResourceLocations("file:E:/localhostFiles/cover/");
 	}
 }

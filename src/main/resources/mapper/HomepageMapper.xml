@@ -9,10 +9,27 @@
 	<result column="musicId" property="musicId" javaType="java.lang.Integer" jdbcType="INTEGER"></result> 
  </resultMap>
  
+ <resultMap type="edu.swjtuhc.model.MusicForm" id="musicForm_result">
+	<id column="userId" property="userId" javaType="java.lang.Integer" jdbcType="INTEGER"></id>
+	<result column="formId" property="formId" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+	<result column="formName" property="formName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	<result column="musicName" property="musicName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	<result column="singer" property="singer" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	<result column="album" property="album" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+	<result column="allTime" property="allTime" javaType="java.sql.Time" jdbcType="TIME"></result>
+	<result column="cover" property="cover" javaType="java.lang.String" jdbcType="VARCHAR"></result> 
+ </resultMap>
+ 
  <select id="selectRotations" resultMap="rotation_result">
 	select
 	*
 	from Rotation
+ </select>
+ 
+ <select id="selecthomepageForm" resultMap="musicForm_result">
+ 	select
+ 	cover,formName
+ 	from musicForm
  </select>
  
 </mapper>

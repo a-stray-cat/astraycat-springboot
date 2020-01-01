@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 01/01/2020 13:07:30
+ Date: 01/01/2020 13:48:18
 */
 
 SET NAMES utf8mb4;
@@ -91,7 +91,7 @@ CREATE TABLE `musicform`  (
   `singer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '歌手',
   `album` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '专辑',
   `allTime` time(0) NOT NULL COMMENT '总时长',
-  `cover` longblob NULL COMMENT '封面',
+  `cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '封面',
   INDEX `formID`(`userId`) USING BTREE,
   CONSTRAINT `musicform_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
@@ -99,10 +99,10 @@ CREATE TABLE `musicform`  (
 -- ----------------------------
 -- Records of musicform
 -- ----------------------------
-INSERT INTO `musicform` VALUES (1, 1, '古风1', '关山酒', '等什么君', '关山酒', '00:03:54', NULL);
-INSERT INTO `musicform` VALUES (2, 1, '古风1', '归寻', '等什么君', '归寻', '00:03:14', NULL);
-INSERT INTO `musicform` VALUES (1, 2, '古风2', '辞九门回忆', '等什么君', '辞九门回忆', '00:04:00', NULL);
-INSERT INTO `musicform` VALUES (2, 2, '古风2', '一抹桃花', '珍哥', '一抹桃花', '00:03:16', NULL);
+INSERT INTO `musicform` VALUES (1, 1, '古风1', '关山酒', '等什么君', '关山酒', '00:03:54', '/cover/1.jpg');
+INSERT INTO `musicform` VALUES (2, 1, '古风1', '归寻', '等什么君', '归寻', '00:03:14', '/cover/2.jpg');
+INSERT INTO `musicform` VALUES (1, 2, '古风2', '辞九门回忆', '等什么君', '辞九门回忆', '00:04:00', '/cover/3.jpg');
+INSERT INTO `musicform` VALUES (2, 2, '古风2', '一抹桃花', '珍哥', '一抹桃花', '00:03:16', '/cover/4.jpg');
 
 -- ----------------------------
 -- Table structure for rotation
