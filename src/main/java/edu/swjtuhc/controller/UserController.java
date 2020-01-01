@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.swjtuhc.model.SysUser;
+import edu.swjtuhc.model.MusicForm;
 import edu.swjtuhc.service.UserService;
 import net.sf.json.JSONObject;
 

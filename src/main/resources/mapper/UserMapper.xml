@@ -10,6 +10,15 @@
  		<result column="adminName" property="adminName" javaType="java.lang.String" jdbcType="VARCHAR"/>
  		<result column="adminPassword" property="adminPassword" javaType="java.lang.String" jdbcType="VARCHAR"/>
  	</resultMap>
+ 	<resultMap type="edu.swjtuhc.mapper.UserMapper" id="musicForm_result">
+ 		<id column="userId" property="userId" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+ 		<result column="formId" property="formId" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+ 		<result column="formName" property="formName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="musicName" property="musicName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="singer" property="singer" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="album" property="album" javaType="java.lang.String" jdbcType="VARCHAR"/>
+ 		<result column="allTime" property="allTime" javaType="java.sql.Time" jdbcType="TIME"/>
+ 	</resultMap>
  	<!-- 注册用户 -->
  	<insert id="insertUser" parameterType="edu.swjtuhc.model.SysUser">
  	insert into
@@ -41,5 +50,10 @@
  		select
  		*
  		from user where username=#{username} and userPassword=#{userPassword}
+ 	</select>
+ 	<select id="selectList" parameterType="java.lang.String" resultType="edu.swjtuhc.model.MusicForm">
+ 		select
+ 		*
+ 		from musicForm where userId=#{userId}
  	</select>
  </mapper>

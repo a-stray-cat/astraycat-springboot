@@ -1,9 +1,12 @@
 package edu.swjtuhc.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.swjtuhc.mapper.UserMapper;
+import edu.swjtuhc.model.MusicForm;
 import edu.swjtuhc.model.SysUser;
 import edu.swjtuhc.service.UserService;
 
@@ -53,6 +56,12 @@ public class UserServiceImp implements UserService {
 			i = 3;
 		} 
 		return i;
+	}
+
+	@Override
+	public List<MusicForm> getList() {
+		// TODO Auto-generated method stub
+		return userMapper.selectList();
 	}
 	
 }
