@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.swjtuhc.mapper.RankinglistMapper">
+	<resultMap type="edu.swjtuhc.model.Music" id="riselist_result">
+		<id column="musicId" property="musicId" javaType="java.lang.Integer" jdbcType="INTEGER"></id>
+		<result column="musicName" property="musicName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="singer" property="singer" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="play" property="play" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+	</resultMap>
+	
+	<select id="selectriseList" resultMap="riselist_result">
+	select
+	*
+	from music order by play desc
+	</select>
+	
+</mapper>
