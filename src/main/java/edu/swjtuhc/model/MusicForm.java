@@ -12,6 +12,7 @@ public class MusicForm {
 	private String album;
 	private Time allTime;
 	private String cover;
+	private int collection;
 	
 	public String getUsername() {
 		return username;
@@ -67,11 +68,17 @@ public class MusicForm {
 	public void setCover(String cover) {
 		this.cover = cover;
 	}
+	public int getCollection() {
+		return collection;
+	}
+	public void setCollection(int collection) {
+		this.collection = collection;
+	}
 	@Override
 	public String toString() {
 		return "MusicForm [username=" + username + ", userId=" + userId + ", formId=" + formId + ", formName="
 				+ formName + ", musicName=" + musicName + ", singer=" + singer + ", album=" + album + ", allTime="
-				+ allTime + ", cover=" + cover + "]";
+				+ allTime + ", cover=" + cover + ", collection=" + collection + "]";
 	}
 	
 }

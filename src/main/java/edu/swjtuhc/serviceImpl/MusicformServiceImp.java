@@ -20,5 +20,11 @@ public class MusicformServiceImp implements MusicformService{
 		// TODO Auto-generated method stub
 		return musicformMapper.selectallForms();
 	}
+
+	@Override
+	public List<MusicForm> getformInfo(MusicForm musicForm) {
+		// TODO Auto-generated method stub
+		return musicformMapper.selectallByformId(musicForm.getFormId(),musicForm.getUserId());
+	}
 	
 }

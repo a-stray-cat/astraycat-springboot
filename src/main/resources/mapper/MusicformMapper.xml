@@ -9,10 +9,33 @@
 		<result column="cover" property="cover" javaType="java.lang.String" jdbcType="VARCHAR"></result>
 	</resultMap>
 	
+	<resultMap type="edu.swjtuhc.model.MusicForm" id="formInfo_result">
+		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="formId" property="formId" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+		<result column="formName" property="formName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="singer" property="singer" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="musicName" property="musicName" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="album" property="album" javaType="java.lang.String" jdbcType="VARCHAR"></result>
+		<result column="allTime" property="allTime" javaType="java.sql.Time" jdbcType="TIME"></result>
+		<result column="collection" property="collection" javaType="java.lang.Integer" jdbcType="INTEGER"></result>
+	</resultMap>
+	
 	<select id="selectallForms" resultMap="musicForm_result">
 		select
 		*
 		from user,musicForm where user.userId=musicForm.userId
+	</select>
+	
+	<select id="selectByformId" resultMap="formInfo_result">
+		select
+		*
+		from musicForm where formId=#{formId}
+	</select>
+	
+	<select id="selectallByformId" resultMap="formInfo_result">
+		select
+		*
+		from user,musicForm where formId=#{formId} and musicForm.userId=#{userId} and user.userId=musicForm.userId
 	</select>
 	
 </mapper>

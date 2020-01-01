@@ -5,5 +5,8 @@ import java.util.List;
 import edu.swjtuhc.model.MusicForm;
 
 public interface MusicformService {
+	
 	public List<MusicForm> getallForms();
+	
+	public List<MusicForm> getformInfo(MusicForm musicForm);
 }

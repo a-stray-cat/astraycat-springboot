@@ -11,4 +11,8 @@ public interface MusicformMapper {
 	
 	public List<MusicForm> selectallForms();
 	
+//	public MusicForm selectByformId(int formId,int userId);
+	
+	public List<MusicForm> selectallByformId(int formId,int userId);
+	
 }
