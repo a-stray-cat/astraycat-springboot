@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 02/01/2020 13:19:01
+ Date: 02/01/2020 13:32:12
 */
 
 SET NAMES utf8mb4;
@@ -154,7 +154,7 @@ CREATE TABLE `video`  (
 -- ----------------------------
 -- Records of video
 -- ----------------------------
-INSERT INTO `video` VALUES (1, 1, 'gnash,Olivia O\'Brien - I Hate U, I Love U', '2016-05-11 00:00:00', '流行', '/video/i hate u ilove u.png');
+INSERT INTO `video` VALUES (1, 1, 'gnash,Olivia O\'Brien - I Hate U, I Love U', '2016-05-11 00:00:00', '流行', '/video/i hate u i love you.png');
 INSERT INTO `video` VALUES (1, 2, '李荣浩 - 麻雀', '2019-12-09 00:00:00', '流行', '/video/maque.png');
 INSERT INTO `video` VALUES (2, 3, '薛之谦,刘惜君 - 聊表心意', '2019-12-17 00:00:00', '流行', '/video/liaobiaoxinyi.png');
 INSERT INTO `video` VALUES (3, 4, '薛之谦 - 像风一样', '2018-01-18 00:00:00', '流行', '/video/xiangfengyiyang.png');
